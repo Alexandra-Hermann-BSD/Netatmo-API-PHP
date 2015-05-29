@@ -1,4 +1,8 @@
 <?php
+use net\netatmo\ApiClient;
+use net\netatmo\Example\ExampleClient;
+use net\netatmo\Scopes;
+use net\netatmo\ClientException;
 /*
 Authentication to Netatmo Server with the authorization grant
 This script has to be hosted by your web server in order to make it work
@@ -7,7 +11,7 @@ This script has to be hosted by your web server in order to make it work
 require_once 'NAApiClient.php';
 require_once 'Config.php';
 
-$client = new NAApiClient(array("client_id" => $client_id, "client_secret" => $client_secret, "scope" => NAScopes::SCOPE_READ_STATION));
+$client = new ApiClient(array("client_id" => ExampleClient::CLIENT_ID, "client_secret" => ExampleClient::CLIENT_SECRET, "scope" => Scopes::SCOPE_READ_STATION));
 
 //Test if code is provided in get parameters (that means user has already accepted the app and has been redirected here)
 if(isset($_GET["code"]))
@@ -17,7 +21,7 @@ if(isset($_GET["code"]))
 	    // Get the token for later usage.(you can store $tokens["refresh_token"] for retrieving a new access_token next time)
 	    $tokens = $client->getAccessToken();       
     }
-    catch(NAClientException $ex)
+    catch(ClientException $ex)
     {
         echo "An error happend while trying to retrieve your tokens\n";
         echo "Reason : ".$ex->getMessage()."\n";
@@ -39,7 +43,7 @@ if(isset($_GET["code"]))
 <?php
 
     }
-    catch(NAClientException $ex)
+    catch(ClientException $ex)
     {
         echo "An error happend while trying to retrieve your last measures\n";
         echo $ex->getMessage()."\n";

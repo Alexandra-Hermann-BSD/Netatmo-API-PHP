@@ -1,20 +1,26 @@
 #!/usr/bin/php
 <?php
+use net\netatmo\ApiClient;
+use net\netatmo\ApiHelper;
+use net\netatmo\Scopes;
+use net\netatmo\ClientException;
+use net\netatmo\Example\ExampleClient;
 /*
 Authentication to Netatmo Server with the user credentials grant
 */
+require_once 'AppliCommonPublic.php';
 require_once 'NAApiClient.php';
 require_once 'Config.php';
 
-$scope = NAScopes::SCOPE_READ_STATION;
+$scope = Scopes::SCOPE_READ_STATION;
 
-$client = new NAApiClient(array("client_id" => $client_id, "client_secret" => $client_secret, "username" => $test_username, "password" => $test_password, "scope" => $scope));
-$helper = new NAApiHelper($client);
+$client = new ApiClient(array("client_id" => ExampleClient::CLIENT_ID, "client_secret" => ExampleClient::CLIENT_SECRET, "username" => ExampleClient::TEST_USERNAME, "password" => ExampleClient::TEST_PASSWORD, "scope" => $scope));
+$helper = new ApiHelper($client);
 
 try {
     $tokens = $client->getAccessToken();
 
-} catch(NAClientException $ex) {
+} catch(ClientException $ex) {
     echo "An error happend while trying to retrieve your tokens\n";
     exit(-1);
 }
