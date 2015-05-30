@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+namespace net\netatmo\Example;
 use net\netatmo\Scopes;
 use net\netatmo\ApiClient;
 use net\netatmo\ClientException;
@@ -8,8 +9,8 @@ use net\netatmo\Example\ExampleClient;
 /*
 Authentication to Netatmo Server with the user credentials grant
 */
-require_once 'NAApiClient.php';
-require_once 'AppliCommonPublic.php';
+require_once '../ApiClient.php';
+require_once '../AppliCommonPublic.php';
 require_once 'Config.php';
 
 $scope = Scopes::SCOPE_READ_THERM." ".Scopes::SCOPE_WRITE_THERM;

@@ -1,4 +1,5 @@
 <?php
+namespace net\netatmo\Example;
 use net\netatmo\Scopes;
 use net\netatmo\ApiClient;
 use net\netatmo\ClientException;
@@ -12,7 +13,7 @@ In this example we will :
  * - for each couple device/thermostat we will retrieve current state
  * - finally for each device we will set device in frost-guard mode 
 */
-require_once 'NAApiClient.php';
+require_once '../ApiClient.php';
 require_once 'Config.php';
 
 

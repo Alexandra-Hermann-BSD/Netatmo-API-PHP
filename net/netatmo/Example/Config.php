@@ -2,7 +2,7 @@
 namespace net\netatmo\Example {
 	
 	use net\netatmo\IClientUser;
-	require_once 'net/netatmo/IClientUser.php';
+	require_once '../IClientUser.php';
 	
 	class ExampleClient implements IClientUser
 	{

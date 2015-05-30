@@ -1,4 +1,5 @@
 <?php
+namespace net\netatmo\Example;
 use net\netatmo\ApiClient;
 use net\netatmo\Example\ExampleClient;
 use net\netatmo\Scopes;
@@ -8,7 +9,7 @@ Authentication to Netatmo Server with the authorization grant
 This script has to be hosted by your web server in order to make it work
 */
 
-require_once 'NAApiClient.php';
+require_once '../ApiClient.php';
 require_once 'Config.php';
 
 $client = new ApiClient(array("client_id" => ExampleClient::CLIENT_ID, "client_secret" => ExampleClient::CLIENT_SECRET, "scope" => Scopes::SCOPE_READ_STATION));
